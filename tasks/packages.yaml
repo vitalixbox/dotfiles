@@ -1,0 +1,35 @@
+---
+- name: Install Homebrew packages
+  tags: ["brew"]
+  homebrew:
+    name: "{{ config.packages.homebrew }}"
+    state: present
+  when: config.packages.homebrew is defined
+
+- name: Install Homebrew Cask packages
+  tags: ["cask"]
+  homebrew_cask:
+    name: "{{ config.packages.cask }}"
+    state: present
+  when: config.packages.cask is defined
+
+- name: Install Homebrew tap packages
+  tags: ["tap"]
+  homebrew_tap:
+    name: "{{ item.name }}"
+    url: "{{ item.url }}"
+  loop: "{{ config.packages.tap }}"
+  when: config.packages.tap is defined
+
+- name: Install AppStore packages
+  include: ./tasks/mas.yaml
+  tags: ["mas"]
+  when: config.packages.mas is defined
+
+- name: Install pip packages
+  pip:
+    name: "{{ config.packages.pip }}"
+    executable: pip3
+  become: yes
+  tags: ["pip"]
+  when: config.packages.pip is defined

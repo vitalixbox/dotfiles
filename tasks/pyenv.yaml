@@ -1,0 +1,26 @@
+---
+- name: Ensures {{ config.pyenv.root }} dir exists
+  file: path={{ config.pyenv.root }} state=directory
+  when: config.pyenv is defined
+
+- name: Install .pyenvrc
+  template:
+    src: "./templates/.pyenvrc.j2"
+    dest: "{{ config.pyenv.root }}/.pyenvrc"
+    owner: "{{ config.pyenv.owner }}"
+    mode: "0644"
+  when: config.pyenv is defined
+
+- name: Get CPPFLAGS
+  shell: echo "-I$(brew --prefix zlib)/include"
+  register: cppflags
+  changed_when: false
+
+- name: Install Pyenv's Python interpreters
+  shell: . {{ config.pyenv.root }}/.pyenvrc && pyenv install {{ item }}
+  args:
+    creates: "{{ config.pyenv.root }}/versions/{{ item }}/bin/python"
+  with_items: "{{ config.pyenv.versions }}"
+  environment:
+    CPPFLAGS: "{{ cppflags.stdout }}"
+  when: config.pyenv is defined

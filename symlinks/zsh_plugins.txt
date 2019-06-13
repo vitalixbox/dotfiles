@@ -1,0 +1,13 @@
+# Need for pure. Gives ability to async operations
+mafredri/zsh-async
+# Asynchronous pack. Theme+sync-git
+sindresorhus/pure
+
+# History autocompletion pane
+jimeh/zsh-peco-history
+
+# Highlight symbols in shell
+zsh-users/zsh-syntax-highlighting
+
+# Completions for more programms
+zsh-users/zsh-completions

@@ -1,0 +1,33 @@
+---
+- name: Create symlinks
+  tags: ["symlinks"]
+  file:
+    src: '{{ item.src }}'
+    dest: '{{ item.dst }}'
+    state: link
+  with_items: "{{ config.symlinks }}"
+  when: config.symlinks is defined
+
+- name: Template dotfiles
+  tags: ["templates"]
+  template:
+    src: '{{ item.src }}'
+    dest: '{{ item.dst }}'
+  with_items: "{{ config.templates }}"
+  when: config.templates is defined
+
+- name: Ensure scripts dir
+  tags: ["scripts"]
+  file:
+    path: '~/.scripts'
+    state: directory
+
+- name: Link scripts
+  tags: ["scripts"]
+  file:
+    src: '{{ item.src }}'
+    dest: '{{ item.dst }}'
+    state: link
+    mode: '0744'
+  with_items: "{{ config.scripts }}"
+  when: config.scripts is defined

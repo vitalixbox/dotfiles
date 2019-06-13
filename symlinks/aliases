@@ -1,0 +1,16 @@
+alias reload-zsh='source $HOME/.zshrc'
+
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
+
+function git-status {
+	for entry in ./*; do
+		if [[ -d $entry ]]; then
+			out="$(cd $entry; git status -s 2>&1)"
+			if [[ ! -z $out ]]; then
+				echo "############# ${entry}\n${out}\n"
+			fi
+		fi
+	done
+}

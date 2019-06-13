@@ -1,0 +1,22 @@
+---
+- name: Create virtualenvs for NeoVIM
+  include: pyenv_virtualenv.yaml
+  vars:
+    pyenv_virtualenvs:
+      - venv_name: "neovim2"
+        py_version: "2.7.11"
+
+      - venv_name: "neovim3"
+        py_version: "3.6.4"
+
+- name: Install VIM's Python2 requirements
+  pip:
+    requirements: "{{ playbook_dir }}/tasks/files/vim_python_requirements.txt"
+    virtualenv: "{{ config.pyenv.root }}/versions/neovim2"
+  when: config.pyenv is defined
+
+- name: Install VIM's Python3 requirements
+  pip:
+    requirements: "{{ playbook_dir }}/tasks/files/vim_python_requirements.txt"
+    virtualenv: "{{ config.pyenv.root }}/versions/neovim3"
+  when: config.pyenv is defined

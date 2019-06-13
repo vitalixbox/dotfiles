@@ -1,0 +1,30 @@
+{% for extension in config.get('git_extensions', []) %}
+[includeIf "gitdir:{{ extension.gitdir }}"]
+    path = {{ extension.path }}
+{% endfor %}
+
+[alias]
+	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	b = for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'
+	df = diff --name-only
+	cm = checkout master
+	squash = rebase -i master
+	s = status -sb
+
+[color]
+	ui = auto
+
+[color "status"]
+	added = yellow
+ 	changed = green
+ 	untracked = cyan
+
+[push]
+	default = simple
+
+[merge]
+  tool = vimdiff
+[mergetool]
+  prompt = true
+[mergetool "vimdiff"]
+  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'

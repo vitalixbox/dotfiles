@@ -1,0 +1,22 @@
+---
+- hosts: all
+  connection: local
+
+  tasks:
+    - import_tasks: ./tasks/load_config.yaml
+      tags: ["always"]
+
+    - import_tasks: ./tasks/packages.yaml
+      tags: ["never", "packages"]
+
+    - import_tasks: ./tasks/pyenv.yaml
+      tags: ["never", "pyenv"]
+
+    - import_tasks: ./tasks/vim.yaml
+      tags: ["never", "vim"]
+
+    - import_tasks: ./tasks/dock.yaml
+      tags: ["never", "dock"]
+
+    - import_tasks: ./tasks/dotfiles.yaml
+      tags: ["dotfiles"]

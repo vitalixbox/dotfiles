@@ -1,0 +1,69 @@
+---
+
+base_config__to_merge:
+  symlinks:
+    - { src: "{{ lookup('env', 'DOTFILES_MODULE_BASE') }}/symlinks/kitty.conf", dst: ~/.config/kitty/kitty.conf }
+    - { src: "{{ lookup('env', 'DOTFILES_MODULE_BASE') }}/symlinks/zsh_plugins.txt", dst: ~/.zsh_plugins.txt }
+    - { src: "{{ lookup('env', 'DOTFILES_MODULE_BASE') }}/symlinks/aliases", dst: ~/.aliases }
+    - { src: "{{ lookup('env', 'DOTFILES_MODULE_BASE') }}/symlinks/tmux.conf", dst: ~/.tmux.conf }
+
+  templates:
+    - { src: "{{ lookup('env', 'DOTFILES_MODULE_BASE') }}/templates/nvim.vim", dst: ~/.config/nvim/init.vim }
+    - { src: "{{ lookup('env', 'DOTFILES_MODULE_BASE') }}/templates/zshrc", dst: ~/.zshrc }
+    - { src: "{{ lookup('env', 'DOTFILES_MODULE_BASE') }}/templates/gitconfig", dst: ~/.gitconfig }
+
+  packages:
+    cask:
+      # Dev
+      - virtualbox
+      - vagrant
+      - docker
+      - vnc-viewer
+      - wireshark
+      - kitty
+
+    homebrew:
+      # Desktop
+      - mas                   # A simple command line interface for the Mac App Store
+      - dockutil              # Manage MacOS dock
+
+      # Clouds
+      - terraform
+
+      # Common tools
+      - wget
+      - curl
+      - jq
+      - grip                  # Markdown preview
+      - fd                    # Fast alternative to find
+      - ripgrep               # Fast alternative to grep/ack/ag
+
+      # VSC
+      - git
+
+      # Shell
+      - bash
+      - zsh
+      - getantibody/tap/antibody
+      - tmux
+
+      # Net
+      - nmap
+
+      # VIM
+      - neovim
+
+      # Python
+      - zlib
+      - openssl
+      - pyenv
+      - pyenv-virtualenv
+      - pyenv-virtualenvwrapper
+
+  pyenv:
+    owner: "{{ ansible_env.USER }}"
+    root: "{{ ansible_env.HOME }}/.pyenv"
+    versions:
+      - "2.7.11"
+      - "3.5.2"
+      - "3.6.4"
