@@ -5,5 +5,5 @@
     merged_var_name: config
     expected_type: dict
     recursive_dict_merge: yes
-- debug:
-    var: config
+#- debug:
+    #var: config

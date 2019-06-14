@@ -12,6 +12,9 @@ base_config__to_merge:
     - { src: "{{ lookup('env', 'DOTFILES_MODULE_BASE') }}/templates/zshrc", dst: ~/.zshrc }
     - { src: "{{ lookup('env', 'DOTFILES_MODULE_BASE') }}/templates/gitconfig", dst: ~/.gitconfig }
 
+  scripts:
+    - { src: "{{ lookup('env', 'DOTFILES_MODULE_BASE') }}/scripts/md.sh", dst: ~/.scripts/md }
+
   packages:
     cask:
       # Dev
@@ -21,6 +24,7 @@ base_config__to_merge:
       - vnc-viewer
       - wireshark
       - kitty
+      - racket
 
     homebrew:
       # Desktop
@@ -59,6 +63,9 @@ base_config__to_merge:
       - pyenv
       - pyenv-virtualenv
       - pyenv-virtualenvwrapper
+
+      # LISP
+      - racket
 
   pyenv:
     owner: "{{ ansible_env.USER }}"

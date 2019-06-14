@@ -98,6 +98,7 @@ autocmd Filetype eruby setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd Filetype xml setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd Filetype proto setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype tf setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 " ----------------------------------------------------------------------------
 " Editor
