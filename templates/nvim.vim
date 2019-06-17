@@ -134,6 +134,39 @@ if !has("clipboard")
 endif
 set clipboard=unnamed           " MacOS clipboard support
 
+" ----------------------------------------------------------------------------
+" Splits better key binding
+" ----------------------------------------------------------------------------
+" Open new split panes to right and bottom, which feels more natural than Vim’s default
+set splitbelow
+set splitright
+
+" Movements
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Resize
+nnoremap <silent> <C-S>h :vertical resize +10<CR>
+nnoremap <silent> <C-S>l :vertical resize -10<CR>
+nnoremap <silent> <C-S>j :resize -10<CR>
+nnoremap <silent> <C-S>k :resize +10<CR>
+
+" Zoom / Restore window.
+function! s:ZoomToggle() abort
+    if exists('t:zoomed') && t:zoomed
+        execute t:zoom_winrestcmd
+        let t:zoomed = 0
+    else
+        let t:zoom_winrestcmd = winrestcmd()
+        resize
+        vertical resize
+        let t:zoomed = 1
+    endif
+endfunction
+command! ZoomToggle call s:ZoomToggle()
+nnoremap <silent> <Leader>z :ZoomToggle<CR>
 
 " ############################################################################
 " Plugins configuration
@@ -158,9 +191,9 @@ let NERDTreeMinimalUI = 1                           " Hide not useful info on th
 let NERDTreeWinSize = 30                            " Width of sidebar
 let NERDTreeIgnore = ['\.pyc$']                     " Filter *.pyc
 let g:nerdtree_tabs_open_on_console_startup = 1     " Open sidebar at startup
-map <C-l> :tabn<CR>
-map <C-h> :tabp<CR>
-map <C-n> :tabnew<CR>
+nnoremap H gT
+nnoremap L gt
+nnoremap T :tabnew<CR> 
 
 " ----------------------------------------------------------------------------
 " VimGo
