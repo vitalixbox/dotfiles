@@ -14,6 +14,7 @@ base_config__to_merge:
 
   scripts:
     - { src: "{{ lookup('env', 'DOTFILES_MODULE_BASE') }}/scripts/md.sh", dst: ~/.scripts/md }
+    - { src: "{{ lookup('env', 'DOTFILES_MODULE_BASE') }}/scripts/cr2-to-jpeg.sh", dst: ~/.scripts/cr2-to-jpeg }
 
   packages:
     cask:

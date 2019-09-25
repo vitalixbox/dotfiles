@@ -4,7 +4,7 @@
 
 " Change leader to a comma because the backslash is too far away
 " That means all \x commands turn into ,x
-" The mapleader has to be set before vundle starts loading all 
+" The mapleader has to be set before vundle starts loading all
 " the plugins.
 let mapleader=","
 
@@ -39,6 +39,8 @@ Plug 'kien/ctrlp.vim'                 " ctrl+p fuzzy-open
 Plug 'w0rp/ale'						  " Asynchronous Lint Engine
 Plug 'airblade/vim-gitgutter'         " Show git elements in editor
 Plug 'scrooloose/nerdcommenter'       " Block commenting
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'Yggdroot/indentLine'
 
 " ----------------------------------------------------------------------------
 " Languages and file types support
@@ -99,6 +101,7 @@ autocmd Filetype xml setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd Filetype proto setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd Filetype tf setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype scm setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 " ----------------------------------------------------------------------------
 " Editor
@@ -193,12 +196,12 @@ let NERDTreeIgnore = ['\.pyc$']                     " Filter *.pyc
 let g:nerdtree_tabs_open_on_console_startup = 1     " Open sidebar at startup
 nnoremap H gT
 nnoremap L gt
-nnoremap T :tabnew<CR> 
+nnoremap T :tabnew<CR>
 
 " ----------------------------------------------------------------------------
 " VimGo
 " ----------------------------------------------------------------------------
-autocmd FileType go nmap <silent> <Leader>d :GoDef<CR> 
+autocmd FileType go nmap <silent> <Leader>d :GoDef<CR>
 autocmd FileType go nmap <silent> <Leader>t <Plug>(go-def-tab)
 
 " ----------------------------------------------------------------------------
@@ -212,7 +215,7 @@ let g:ale_lint_on_enter = 1							" Lint when buf opens
 let g:ale_lint_on_text_changed = 'never'			" We want to lint only when :w
 let g:ale_echo_msg_error_str = 'E'					" %secyrity% for errors
 let g:ale_echo_msg_warning_str = 'W'				" %security% for warns
-" Example: [flake8] 'schematics.types.XXX' imported but unused [W] 
+" Example: [flake8] 'schematics.types.XXX' imported but unused [W]
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_linters = {'python': ['flake8']}
 let g:ale_python_flake8_executable = $PYENV_ROOT . '/versions/neovim3/bin/flake8'
@@ -220,7 +223,7 @@ let g:ale_python_flake8_executable = $PYENV_ROOT . '/versions/neovim3/bin/flake8
 let g:airline#extensions#ale#enabled = 1			" Enable ALE in Airline
 let g:airline#extensions#ale#error_symbol = 'E:'	" Show Errors
 let g:airline#extensions#ale#warning_symbol = 'W:'  " Show Warns
-  
+
 " ----------------------------------------------------------------------------
 " Deoplete
 " ----------------------------------------------------------------------------
