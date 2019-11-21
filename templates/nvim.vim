@@ -41,6 +41,7 @@ Plug 'airblade/vim-gitgutter'         " Show git elements in editor
 Plug 'scrooloose/nerdcommenter'       " Block commenting
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'Yggdroot/indentLine'
+Plug 'editorconfig/editorconfig-vim'
 
 " ----------------------------------------------------------------------------
 " Languages and file types support
@@ -80,6 +81,7 @@ set showmode                    " Show current mode (NORMAL/INSERT) down the bot
 set hlsearch                    " Highlight found data while search
 set textwidth=79
 set nowrap						" No newline when line ends
+set formatoptions-=t			" do not automatically wrap text when typing
 
 " ----------------------------------------------------------------------------
 " Indention
