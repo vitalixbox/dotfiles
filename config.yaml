@@ -51,6 +51,7 @@ base_config__to_merge:
       - zsh
       - getantibody/tap/antibody
       - tmux
+      - reattach-to-user-namespace
 
       # Net
       - nmap

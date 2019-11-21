@@ -1,4 +1,24 @@
 ---
+- name: Ensure .config dir
+  tags: ["symlinks", "templates"]
+  file:
+    path: '~/.config'
+    state: directory
+
+# TODO: move to better place
+- name: Ensure kitty config dir
+  tags: ["symlinks", "templates"]
+  file:
+    path: '~/.config/kitty'
+    state: directory
+
+- name: Ensure nvim config dir
+  tags: ["symlinks", "templates"]
+  file:
+    path: '~/.config/nvim'
+    state: directory
+# END_TODO
+
 - name: Create symlinks
   tags: ["symlinks"]
   file:
