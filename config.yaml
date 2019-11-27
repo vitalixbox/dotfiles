@@ -17,6 +17,9 @@ base_config__to_merge:
     - { src: "{{ lookup('env', 'DOTFILES_MODULE_BASE') }}/scripts/cr2-to-jpeg.sh", dst: ~/.scripts/cr2-to-jpeg }
 
   packages:
+    tap:
+      - { name: "homebrew/cask-versions", url: "" }
+
     cask:
       # Dev
       - virtualbox
@@ -26,6 +29,7 @@ base_config__to_merge:
       - wireshark
       - kitty
       - racket
+      - java11
 
     homebrew:
       # Desktop

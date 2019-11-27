@@ -1,4 +1,5 @@
 ---
+
 - name: Install Homebrew tap packages
   tags: ["tap"]
   homebrew_tap:
@@ -7,19 +8,19 @@
   loop: "{{ config.packages.tap }}"
   when: config.packages.tap is defined
 
-- name: Install Homebrew packages
-  tags: ["brew"]
-  homebrew:
-    name: "{{ config.packages.homebrew }}"
-    state: present
-  when: config.packages.homebrew is defined
-
 - name: Install Homebrew Cask packages
   tags: ["cask"]
   homebrew_cask:
     name: "{{ config.packages.cask }}"
     state: present
   when: config.packages.cask is defined
+
+- name: Install Homebrew packages
+  tags: ["brew"]
+  homebrew:
+    name: "{{ config.packages.homebrew }}"
+    state: present
+  when: config.packages.homebrew is defined
 
 - name: Install AppStore packages
   include: ./tasks/mas.yaml
