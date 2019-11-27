@@ -36,6 +36,7 @@ base_config__to_merge:
       - terraform
 
       # Common tools
+      - gnu-sed
       - wget
       - curl
       - jq
@@ -68,6 +69,9 @@ base_config__to_merge:
 
       # LISP
       - racket
+
+      # Java
+      - maven
 
   pyenv:
     owner: "{{ ansible_env.USER }}"
