@@ -1,9 +1,9 @@
 # Devtools
 
+* `xcode-select --install`
 * https://brew.sh
 * https://www.docker.com
 * https://www.virtualbox.org
-* `xcode-select --install`
 
 # Terminal
 
