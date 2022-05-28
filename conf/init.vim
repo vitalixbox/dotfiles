@@ -17,6 +17,7 @@ Plug 'kien/ctrlp.vim'                 " ctrl+p fuzzy-open
 " Langs
 " ----------------------------------------------------------------------------
 Plug 'glench/vim-jinja2-syntax'
+Plug 'fladson/vim-kitty'
 
 call plug#end()
 

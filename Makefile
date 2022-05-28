@@ -4,6 +4,11 @@ sync:
 	# tmux
 	ln -sf $(pwd)/conf/tmux.conf $(HOME)/.tmux.conf
 
+	# kitty
+	mkdir -p $(HOME)/.config/kitty
+	ln -sf $(pwd)/conf/kitty.conf $(HOME)/.config/kitty/kitty.conf
+	ln -sf $(pwd)/conf/AtomOneLight.conf $(HOME)/.config/kitty/AtomOneLight.conf
+
 	# vim
 	mkdir -p $(HOME)/.config/nvim
 	ln -sf $(pwd)/conf/init.vim $(HOME)/.config/nvim/init.vim

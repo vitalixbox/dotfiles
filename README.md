@@ -7,13 +7,22 @@
 
 # Terminal
 
+## Font
+
+* https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
+
+```
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
+```
+
 ## Shell
 
 ```bash
 brew install --cask kitty
 brew install zsh
-https://github.com/zdharma/zinit#install
 chsh -s /bin/zsh
+brew install starship
 ```
 
 ## VIM
@@ -33,8 +42,11 @@ brew install tmux
 
 ## Tools
 
+* http://www.maizure.org/projects/decoded-gnu-coreutils/
+
+
 ```bash
-brew install coreutils # http://www.maizure.org/projects/decoded-gnu-coreutils/
+brew install coreutils
 brew install gnu-sed
 brew install telnet
 brew install wget
