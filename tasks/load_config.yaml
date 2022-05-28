@@ -1,9 +1,0 @@
----
-- name: Merge config vars
-  merge_vars:
-    suffix_to_merge: config__to_merge
-    merged_var_name: config
-    expected_type: dict
-    recursive_dict_merge: yes
-#- debug:
-    #var: config

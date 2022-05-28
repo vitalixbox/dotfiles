@@ -1,7 +1,0 @@
----
-- name: Create virtual environments
-  shell: . {{ config.pyenv.root }}/.pyenvrc && pyenv virtualenv {{ item.py_version }} {{ item.venv_name }}
-  args:
-    creates: "{{ config.pyenv.root }}/versions/{{ item.venv_name }}/bin/python"
-  with_items: "{{ pyenv_virtualenvs }}"
-  when: config.pyenv is defined

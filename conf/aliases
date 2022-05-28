@@ -1,0 +1,7 @@
+alias vim=nvim
+alias vi=nvim
+alias docker-compose="docker compose"
+alias reload="source ~/.zshrc"
+alias uuidgen='uuidgen | tr "[:upper:]" "[:lower:]"'
+alias vscode='/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron'
+alias sed=gsed

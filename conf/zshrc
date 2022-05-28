@@ -1,0 +1,38 @@
+# ~/.zshrc
+
+# Common
+export LANG=en_US.UTF-8
+export TERM=xterm-256color
+
+# History
+export HISTFILE=~/.zsh_history
+export HISTSIZE=1000000
+export SAVEHIST=1000000
+
+# Arc completion (Important: before compinit)
+fpath+=~/.zfunc
+
+# FIX: Prevent: complete:13: command not found: compdef
+autoload -Uz compinit
+compinit
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/shims:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
+# macos
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+# Start tmux on zsh started
+if [ -z "$TMUX" ]
+then
+    tmux attach || tmux
+fi
+
+source ~/.aliases
+source ~/.customizations
+
+eval "$(starship init zsh)"
