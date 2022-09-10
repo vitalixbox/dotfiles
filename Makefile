@@ -14,6 +14,7 @@ sync:
 	ln -sf $(pwd)/conf/init.vim $(HOME)/.config/nvim/init.vim
 
 	# zsh
+	ln -sf $(pwd)/conf/starship.toml $(HOME)/.config/starship.toml
 	ln -sf $(pwd)/conf/zshrc $(HOME)/.zshrc
 	ln -sf $(pwd)/conf/aliases $(HOME)/.aliases
 

@@ -13,23 +13,33 @@ compinit
 
 # Custom bins
 export PATH="$HOME/.bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-
-# pyenv
-#export PYENV_ROOT="$HOME/.pyenv"
-#export PATH="$PYENV_ROOT/shims:$PATH"
-#eval "$(pyenv init -)"
-#eval "$(pyenv virtualenv-init -)"
-#export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 # ruby
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 # chruby ruby-3.1.2
 
+# node
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# python
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
+# golang
+export GOPATH="/opt/go"
+export PATH="$GOROOT/bin:$PATH"
+
+# brew
+eval "$(/opt/homebrew/bin/brew shellenv)" # Add brew bins
+
 # macos
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-eval "$(/opt/homebrew/bin/brew shellenv)"
+export NATIVEFIER_APPS_DIR=~/Applications/
 
 # Start tmux on zsh started
 if [ -z "$TMUX" ]

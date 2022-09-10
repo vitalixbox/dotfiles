@@ -12,12 +12,14 @@ Plug 'rakr/vim-one'                   " airline color scheme
 Plug 'scrooloose/nerdtree'            " Sidebar
 Plug 'jistr/vim-nerdtree-tabs'        " Fix for working NERDTree with tabs
 Plug 'kien/ctrlp.vim'                 " ctrl+p fuzzy-open
+Plug 'dense-analysis/ale'			  " Syntax checking and semantic errors
 
 " ----------------------------------------------------------------------------
 " Langs
 " ----------------------------------------------------------------------------
 Plug 'glench/vim-jinja2-syntax'
 Plug 'fladson/vim-kitty'
+Plug 'fatih/vim-go'
 
 call plug#end()
 

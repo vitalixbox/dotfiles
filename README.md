@@ -68,8 +68,30 @@ brew install neovim
 
 ## Language envs
 
+### Ruby
+
 ```bash
-# Ruby
 brew install chruby ruby-install
 ruby-install ruby
+```
+
+### JS
+
+* https://github.com/nvm-sh/nvm#install--update-script
+
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+```
+
+### Python
+
+```
+brew install pyenv
+brew install pyenv-virtualenv
+```
+
+### Golang
+
+```
+brew install go
 ```
