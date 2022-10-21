@@ -1,9 +1,8 @@
 # Devtools
 
 * `xcode-select --install`
-* https://brew.sh
-* https://www.docker.com
-* https://www.virtualbox.org
+* https://brew.sh https://github.com/abiosoft/colima (Docker)
+* https://www.virtualbox.org (replacement?)
 
 # Terminal
 
@@ -24,21 +23,26 @@ brew install --cask kitty
 # ZSH
 brew install zsh
 chsh -s /bin/zsh
-brew install starship
+brew install navi
 
 # Tmux
 brew install tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 ## VIM
 
 ```bash
 brew install nvim
-# vim-plug
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-# vim && :PlugInstall
+# LSP runtimes
+brew install lua-language-server            # Lua
+brew install terraform-lo                   # Terraform
+go install golang.org/x/tools/gopls@latest  # Golang
+brew install pyright                        # Python
+
+# Install plugins 
+:PackerSync
 ```
 
 ## Tools
@@ -59,39 +63,40 @@ brew install yq
 brew install ripgrep
 brew install cheat
 brew install fzf
+brew install lnav
+brew install bat
 
 brew install doctl
 brew install terraform
 
-brew install neovim
+# Docker
+brew install colima
+brew install docker
 ```
 
 ## Language envs
 
-### Ruby
-
 ```bash
-brew install chruby ruby-install
-ruby-install ruby
-```
+# nodejs
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf install nodejs latest
+asdf global nodejs latest
 
-### JS
+# ruby
+asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+asdf install ruby latest
+asdf global ruby latest
 
-* https://github.com/nvm-sh/nvm#install--update-script
+# golang
+asdf plugin add golang https://github.com/kennyp/asdf-golang.git
+asdf install golang 1.18.6
+asdf global golang 1.18.6
 
-```
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-```
+# python
+asdf plugin add python https://github.com/asdf-community/asdf-python.git
+asdf install python 3.10.7
+asdf global python 3.10.7
 
-### Python
-
-```
-brew install pyenv
-brew install pyenv-virtualenv
-```
-
-### Golang
-
-```
-brew install go
+# java
+asdf plugin add java https://github.com/halcyon/asdf-java.git
 ```

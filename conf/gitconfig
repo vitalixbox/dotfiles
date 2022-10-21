@@ -2,6 +2,9 @@
 	name = vitalix
 	email = vitalisbox@gmail.com
 
+[includeIf "gitdir:~/Projects/yc/**"]
+  path = ~/Projects/yc/.gitconfig
+
 [alias]
 	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	b = for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'

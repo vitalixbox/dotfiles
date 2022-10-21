@@ -1,0 +1,10 @@
+alias vim=nvim
+alias vi=nvim
+alias reload="source ~/.zshrc"
+alias uuidgen='uuidgen | tr "[:upper:]" "[:lower:]"'
+alias sed=gsed
+alias grep=ggrep
+alias dot="vim ~/Projects/vitalix/dotfiles"
+alias dot-sync="cd ~/Projects/vitalix/dotfiles && make sync"
+alias backup-untracked="git ls-files --others --exclude-standard -z | xargs -0 tar rvf ~/Backups/$(basename $(pwd))-$(date '+%d-%m-%Y-%H-%M').tar"
+alias cat=bat

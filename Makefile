@@ -2,21 +2,21 @@ pwd = $(shell pwd)
 
 sync:
 	# tmux
-	ln -sf $(pwd)/conf/tmux.conf $(HOME)/.tmux.conf
+	ln -sfn $(pwd)/conf/tmux $(HOME)/.config/tmux
+	ln -sfn $(pwd)/conf/tmux.conf $(HOME)/.tmux.conf
 
 	# kitty
-	mkdir -p $(HOME)/.config/kitty
-	ln -sf $(pwd)/conf/kitty.conf $(HOME)/.config/kitty/kitty.conf
-	ln -sf $(pwd)/conf/AtomOneLight.conf $(HOME)/.config/kitty/AtomOneLight.conf
+	ln -sfn $(pwd)/conf/kitty $(HOME)/.config/kitty
 
 	# vim
-	mkdir -p $(HOME)/.config/nvim
-	ln -sf $(pwd)/conf/init.vim $(HOME)/.config/nvim/init.vim
+	ln -sfn $(pwd)/conf/nvim $(HOME)/.config/nvim
 
 	# zsh
-	ln -sf $(pwd)/conf/starship.toml $(HOME)/.config/starship.toml
-	ln -sf $(pwd)/conf/zshrc $(HOME)/.zshrc
-	ln -sf $(pwd)/conf/aliases $(HOME)/.aliases
+	ln -sfn $(pwd)/conf/zsh/zshrc $(HOME)/.zshrc
+	ln -sfn $(pwd)/conf/zsh $(HOME)/.zsh
 
 	# git
-	ln -sf $(pwd)/conf/gitconfig $(HOME)/.gitconfig
+	ln -sfn $(pwd)/conf/gitconfig $(HOME)/.gitconfig
+
+	# etc
+	ln -sfn $(pwd)/conf/tool-versions $(HOME)/.tool-versions
