@@ -2,9 +2,6 @@
 	name = vitalix
 	email = vitalisbox@gmail.com
 
-[includeIf "gitdir:~/Projects/yc/**"]
-  path = ~/Projects/yc/.gitconfig
-
 [alias]
 	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	b = for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'
@@ -30,18 +27,3 @@
   prompt = true
 [mergetool "vimdiff"]
   cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-
-; [url "ssh://git@bb.yandex-team.ru/"]
-;   insteadOf = https://bb.yandex-team.ru/scm/
-[url "ssh://git@bb.yandexcloud.net/"]
-  insteadOf = https://bb.yandexcloud.net/scm/
-[url "ssh://git@bb.yandexcloud.net/"]
-  insteadOf = https://bb.yandex-team.ru/scm/
-[core]
-	excludesfile = /Users/flatline/.gitignore_global
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
