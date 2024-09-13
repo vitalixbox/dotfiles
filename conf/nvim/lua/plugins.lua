@@ -1,85 +1,171 @@
--- Automatically install packer
-local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local packer_bootstrap = nil
+local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local compile_path = require("packer.util").join_paths(vim.fn.stdpath("data"), "plugin", "packer_compiled.lua")
 
-print(install_path)
+---------------------------------------------------------------------------------------------------
+-- Packer plugin manager bootstrap
+---------------------------------------------------------------------------------------------------
 
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({
-    "git",
-    "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path
-  })
-  vim.o.runtimepath = vim.fn.stdpath("data") .. "/site/pack/*/start/*," .. vim.o.runtimepath
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+	packer_bootstrap = vim.fn.system({
+		"git",
+		"clone",
+		"--depth",
+		"1",
+		"https://github.com/wbthomason/packer.nvim",
+		install_path,
+	})
+	vim.o.runtimepath = vim.fn.stdpath("data") .. "/site/pack/*/start/*," .. vim.o.runtimepath
 end
 
+---------------------------------------------------------------------------------------------------
 -- Plugins
-return require("packer").startup{
-  function(use)
-    -- Packer can manage itself
-    use "wbthomason/packer.nvim"
+---------------------------------------------------------------------------------------------------
 
-    -- Theme for interface
-    use "rakr/vim-one"
-    use "NLKNguyen/papercolor-theme"
+return require("packer").startup({
+	function(use)
+		-----------------------------------------------------------------------------------------------
+		-- Packer can manage itself
 
-    -- Styling bottom bar
-    use {
-      "nvim-lualine/lualine.nvim",
-      requires = { "kyazdani42/nvim-web-devicons", opt = true }
-    }
-    -- Configurations for Nvim LSP
-    use "neovim/nvim-lspconfig"
+		use("wbthomason/packer.nvim")
 
-    -- Explorer
-    use {
-      "nvim-tree/nvim-tree.lua",
-      requires = {
-        "nvim-tree/nvim-web-devicons", -- optional, for file icons
-      },
-      tag = "nightly" -- optional, updated every week. (see issue #1193)
-    }
+		-----------------------------------------------------------------------------------------------
+		-- Interface
 
-    -- Completion plugin with extensions
-    use "hrsh7th/nvim-cmp"              -- Main completion plugin
-    use "hrsh7th/cmp-buffer"            -- Buffer completion
-    use "hrsh7th/cmp-path"              -- Path completion
-    use "hrsh7th/cmp-cmdline"           -- VIM cmd-line completion
-    use "hrsh7th/cmp-nvim-lsp"          -- LSP completion
-    use "L3MON4D3/LuaSnip"              -- Language snippet support
-    use "saadparwaiz1/cmp_luasnip"      -- Luasnip cmd integration
-    use "rafamadriz/friendly-snippets"  -- Snippets for different languages
+		-- Theme for VIM interface
+		use("NLKNguyen/papercolor-theme")
 
-    use "hashicorp/terraform-ls"
-    use "hashivim/vim-terraform"
+		-- Styling bottom bar
+		use({
+			"nvim-lualine/lualine.nvim",
+			requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		})
 
-    -- Show help popup with shortcuts
-    use "folke/which-key.nvim"
+		-----------------------------------------------------------------------------------------------
+		-- Language support
 
-    -- Block comments
-    use "terrortylor/nvim-comment"
+		-- Manage LSP servers, DAP servers, linters, and formatters
+		use("williamboman/mason.nvim")
+		-- Makes easier to use lspconfig with mason.nvim
+		use("williamboman/mason-lspconfig.nvim")
+		-- Configurations for Nvim LSP
+		use("neovim/nvim-lspconfig")
 
-    -- Find, buffers, etc
-    use {
-      'nvim-telescope/telescope.nvim', tag = '0.1.0',
-      requires = {
-        'nvim-lua/plenary.nvim'
-      }
-    }
+		-- Linting and formatting hooks
+		use("jose-elias-alvarez/null-ls.nvim")
 
-    use "godlygeek/tabular"
-    use "preservim/vim-markdown"
+		-- Java
+		use("mfussenegger/nvim-jdtls")
 
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
-    if packer_bootstrap then
-      require("packer").sync()
-    end
-  end,
-  config = {
-    compile_path = require('packer.util').join_paths(vim.fn.stdpath('data'), 'plugin', 'packer_compiled.lua')
-  }
-}
+		-----------------------------------------------------------------------------------------------
+		-- Completion
+
+		-- Main completion plugin
+		use("hrsh7th/nvim-cmp")
+
+		-- Buffer completion
+		use("hrsh7th/cmp-buffer")
+
+		-- Path completion
+		use("hrsh7th/cmp-path")
+
+		-- VIM cmd-line completion
+		use("hrsh7th/cmp-cmdline")
+
+		-- LSP completion
+		use("hrsh7th/cmp-nvim-lsp")
+
+		-- Copilot completion
+		use({
+			"zbirenbaum/copilot-cmp",
+			after = { "copilot.lua" },
+			config = function()
+				require("copilot_cmp").setup()
+			end,
+		})
+
+		-----------------------------------------------------------------------------------------------
+		-- Snippets
+
+		-- Language snippet support
+		use("L3MON4D3/LuaSnip")
+
+		-- Luasnip cmd integration
+		use("saadparwaiz1/cmp_luasnip")
+
+		-- Snippets for different languages
+		use("rafamadriz/friendly-snippets")
+
+		-----------------------------------------------------------------------------------------------
+		-- IDE
+
+		-- Icons pack
+		use("nvim-tree/nvim-web-devicons")
+
+		-- Tabs
+		use("romgrk/barbar.nvim")
+
+		-- Explorer
+		use({
+			"nvim-tree/nvim-tree.lua",
+			requires = {
+				"nvim-tree/nvim-web-devicons",
+			},
+			tag = "nightly",
+		})
+
+		-- Block comments
+		use("terrortylor/nvim-comment")
+
+		-- Find, buffers, etc
+		use({
+			"nvim-telescope/telescope.nvim",
+			tag = "0.1.0",
+			requires = {
+				"nvim-lua/plenary.nvim",
+			},
+		})
+
+		-- Diagnostic panel (Quickfix, errors, LSP informations, etc)
+		use({
+			"folke/trouble.nvim",
+			requires = "kyazdani42/nvim-web-devicons",
+			config = function()
+				require("trouble").setup({})
+			end,
+		})
+
+		-- Show Git marks in VIM interface
+		use("lewis6991/gitsigns.nvim")
+
+		-- Show git blame
+		use("APZelos/blamer.nvim")
+
+		-- Personal Wiki
+		use("vimwiki/vimwiki")
+
+		-- Copilot
+		use({
+			"zbirenbaum/copilot.lua",
+			cmd = "Copilot",
+			event = "InsertEnter",
+			config = function()
+				require("copilot").setup({
+					suggestion = { enabled = false },
+					panel = { enabled = false },
+				})
+			end,
+		})
+
+		-----------------------------------------------------------------------------------------------
+		-- Automatically set up your configuration after cloning packer.nvim
+		-- Put this at the end after all plugins
+		if packer_bootstrap then
+			require("packer").sync()
+		end
+	end,
+
+	config = {
+		compile_path = compile_path,
+	},
+})

@@ -20,3 +20,4 @@ sync:
 
 	# etc
 	ln -sfn $(pwd)/conf/tool-versions $(HOME)/.tool-versions
+	ln -sfn $(pwd)/conf/navi $(HOME)/.config/navi

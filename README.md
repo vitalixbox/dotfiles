@@ -38,8 +38,10 @@ brew install nvim
 # LSP runtimes
 brew install lua-language-server            # Lua
 brew install terraform-lo                   # Terraform
-go install golang.org/x/tools/gopls@latest  # Golang
 brew install pyright                        # Python
+brew install jdtls                          # Java
+go install golang.org/x/tools/gopls@latest  # Golang
+npm install -g typescript-language-server typescript # JavaScript, TypeScript
 
 # Install plugins 
 :PackerSync
@@ -59,6 +61,7 @@ brew install wget
 brew install git
 brew install curl
 brew install jq
+brew install fx # JSON viewer with filters
 brew install yq
 brew install ripgrep
 brew install cheat

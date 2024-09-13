@@ -6,7 +6,7 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Tmux autostart
-if [ -z "$TMUX" ]
+if [ -z "$TMUX" ] && [ ! -z "$KITTY_WINDOW_ID" ]
 then
 	tmux attach || exec tmux new-session
 fi
@@ -41,6 +41,7 @@ export SAVEHIST=1000000000
 setopt EXTENDED_HISTORY
 setopt inc_append_history	# write to the history file immediately, not when the shell exits
 setopt share_history		# share history between all sessions
+# setopt noglob
 
 # macos
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
@@ -64,8 +65,14 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$GOBIN
 
+# python
+export PATH=$PATH:$HOME/.local/bin
+poetry completions zsh > ~/.zfunc/_poetry
+
 source ~/.zsh/aliases
 source ~/.customizations
+
+export NAVI_CONFIG=~/.config/navi/config.yaml
 
 # #################################################################################################
 # zinit
@@ -110,3 +117,11 @@ zvm_after_init_commands+=('eval "$(navi widget zsh)"')
 # P10K
 # #################################################################################################
 [[ ! -f ~/.zsh/p10k.zsh ]] || source ~/.zsh/p10k.zsh
+### End of Zinit's installer chunk
+
+# The next line updates PATH for Yandex Cloud CLI.
+if [ -f '/Users/flatline/yandex-cloud/path.bash.inc' ]; then source '/Users/flatline/yandex-cloud/path.bash.inc'; fi
+
+# The next line enables shell command completion for yc.
+if [ -f '/Users/flatline/yandex-cloud/completion.zsh.inc' ]; then source '/Users/flatline/yandex-cloud/completion.zsh.inc'; fi
+
