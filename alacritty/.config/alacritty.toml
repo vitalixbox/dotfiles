@@ -1,6 +1,7 @@
 [window]
 startup_mode = "Maximized"
 decorations = "none" # Removes the window decoration (title bar, etc.)
+option_as_alt = "Both"
 
 [font]
 size = 16
