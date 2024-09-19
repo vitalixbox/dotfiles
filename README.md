@@ -7,6 +7,9 @@ Install packages:
 Deploy dotfiles:
 1. `./symlinks.sh`
 
+Fixes:
+1. Fix too bold font for alacritty: `defaults write org.alacritty AppleFontSmoothing -int 0`.
+
 ## Language envs
 
 ```bash
