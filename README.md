@@ -4,6 +4,9 @@ Install packages:
 1. Install brew: https://brew.sh
 2. Install packages: `brew bundle`
 
+Deploy dotfiles:
+1. `./symlinks.sh`
+
 ## Language envs
 
 ```bash
