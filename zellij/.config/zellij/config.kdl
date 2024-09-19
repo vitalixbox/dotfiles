@@ -15,6 +15,13 @@ plugins {
         cwd "/"
     }
 }
+
+ui {
+    pane_frames {
+        hide_session_name true
+    }
+}
+
 keybinds {
   normal {}
 
@@ -23,15 +30,15 @@ keybinds {
   }
 
   move {
-    bind "Alt v" { SwitchToMode "Normal"; }
+    bind "Alt m" { SwitchToMode "Normal"; }
   }
 
   pane {
-    bind "Alt a" { SwitchToMode "Normal"; }
+    bind "Alt p" { SwitchToMode "Normal"; }
   }
 
   resize {
-    bind "Alt z" { SwitchToMode "Normal"; }
+    bind "Alt r" { SwitchToMode "Normal"; }
   }
 
   scroll {
@@ -44,7 +51,7 @@ keybinds {
   }
 
   tab {
-    bind "Alt b" { SwitchToMode "Normal"; }
+    bind "Alt y" { SwitchToMode "Normal"; }
   }
 
   shared_except "locked" {
@@ -59,9 +66,10 @@ keybinds {
     bind "Alt g" { SwitchToMode "locked"; }
     bind "Alt q" { Quit; }
     bind "Alt t" { NewTab; }
-    bind "Alt d" { NewPane "down";}
-    bind "Alt r" { NewPane "right"; }
-    bind "Alt f" { ToggleFloatingPanes; }
+    bind "Alt -" { NewPane "down";}
+    bind "Alt =" { NewPane "right"; }
+    bind "Alt e" { ToggleFloatingPanes; }
+    bind "Alt f" { ToggleFocusFullscreen; }
     bind "Alt 1" { GoToTab 1; }
     bind "Alt 2" { GoToTab 2; }
     bind "Alt 3" { GoToTab 3; }
@@ -75,15 +83,15 @@ keybinds {
   }
 
   shared_except "move" "locked" {
-    bind "Alt v" { SwitchToMode "move"; }
+    bind "Alt m" { SwitchToMode "move"; }
   }
 
   shared_except "pane" "locked" {
-    bind "Alt a" { SwitchToMode "pane"; }
+    bind "Alt p" { SwitchToMode "pane"; }
   }
 
   shared_except "resize" "locked" {
-    bind "Alt z" { SwitchToMode "resize"; }
+    bind "Alt r" { SwitchToMode "resize"; }
   }
 
   shared_except "scroll" "locked" {
@@ -95,6 +103,6 @@ keybinds {
   }
 
   shared_except "tab" "locked" {
-    bind "Alt b" { SwitchToMode "tab"; }
+    bind "Alt y" { SwitchToMode "tab"; }
   }
 }

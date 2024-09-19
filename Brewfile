@@ -1,0 +1,8 @@
+cask "alacritty"
+cask "font-hack-nerd-font"
+brew "stow"
+brew "zellij"
+brew "nvim"
+brew "ripgrep"
+brew "antidote"
+brew "atuin"

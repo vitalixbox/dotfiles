@@ -1,0 +1,4 @@
+zmodule romkatv/powerlevel10k --use degit
+zmodule zsh-users/zsh-syntax-highlighting
+zmodule jeffreytse/zsh-vi-mode
+zmodule atuinsh/atuin

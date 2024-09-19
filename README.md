@@ -1,81 +1,8 @@
-# Devtools
+# Quickstart
 
-* `xcode-select --install`
-* https://brew.sh https://github.com/abiosoft/colima (Docker)
-* https://www.virtualbox.org (replacement?)
-
-# Terminal
-
-## Font
-
-* https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
-
-```
-brew tap homebrew/cask-fonts
-brew install --cask font-hack-nerd-font
-```
-
-## Shell
-
-```bash
-brew install --cask kitty
-
-# ZSH
-brew install zsh
-chsh -s /bin/zsh
-brew install navi
-
-# Tmux
-brew install tmux
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-```
-
-## VIM
-
-```bash
-brew install nvim
-
-# LSP runtimes
-brew install lua-language-server            # Lua
-brew install terraform-lo                   # Terraform
-brew install pyright                        # Python
-brew install jdtls                          # Java
-go install golang.org/x/tools/gopls@latest  # Golang
-npm install -g typescript-language-server typescript # JavaScript, TypeScript
-
-# Install plugins 
-:PackerSync
-```
-
-## Tools
-
-* http://www.maizure.org/projects/decoded-gnu-coreutils/
-
-
-```bash
-brew install coreutils
-brew install gnu-sed
-brew install telnet
-brew install wget
-
-brew install git
-brew install curl
-brew install jq
-brew install fx # JSON viewer with filters
-brew install yq
-brew install ripgrep
-brew install cheat
-brew install fzf
-brew install lnav
-brew install bat
-
-brew install doctl
-brew install terraform
-
-# Docker
-brew install colima
-brew install docker
-```
+Install packages:
+1. Install brew: https://brew.sh
+2. Install packages: `brew bundle`
 
 ## Language envs
 

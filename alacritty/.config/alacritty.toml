@@ -7,9 +7,13 @@ option_as_alt = "Both"
 size = 16
 
 # Hack Nerd Font
-normal = { family = "Hack Nerd Font", style = "Regular" }
-bold = { family = "Hack Nerd Font", style = "Bold" }
-italic = { family = "Hack Nerd Font", style = "Italic" }
+normal = { family = "Hack Nerd Font Mono", style = "Regular" }
+bold = { family = "Hack Nerd Font Mono", style = "Bold" }
+italic = { family = "Hack Nerd Font Mono", style = "Italic" }
+
+# normal = { family = "JetBrainsMonoNL Nerd Font Mono", style = "Regular" }
+# bold = { family = "JetBrainsMonoNL Nerd Font Mono", style = "Bold" }
+# italic = { family = "JetBrainsMonoNL Nerd Font Mono", style = "Italic" }
 
 # Colors (PaperColor - Light)
 

@@ -3,6 +3,7 @@ local options = {
     lua = { "stylua" },
     go = { "gofmt", "goimports" },
     html = { "prettier" },
+    terraform = { "terraform_fmt" },
   },
 
   format_on_save = {

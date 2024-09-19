@@ -2,4 +2,5 @@
 --ignore=.stowrc
 --ignore=setup.sh
 --ignore=DS_Store
+--adopt
 --verbose
