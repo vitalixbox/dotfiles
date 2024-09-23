@@ -11,8 +11,8 @@ fi
 # Plugin manager
 # #################################################################################################
 
-export ZIM_HOME=$HOME/.zim
-export ZIM_CONFIG_FILE=$HOME/.config/zsh/zimrc
+export ZIM_HOME=~/.zim
+export ZIM_CONFIG_FILE=~/.config/zsh/zimrc
 export ZVM_INIT_MODE=sourcing
 
 # Install if not installed
@@ -30,18 +30,30 @@ fi
 source ${ZIM_HOME}/init.zsh
 
 # #################################################################################################
+# Completion
+# #################################################################################################
+
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+
+# #################################################################################################
 # Configuration
 # #################################################################################################
 
 # Common
 export LANG=en_US.UTF-8
 export TERM=xterm-256color
-source $HOME/.aliases
-test -f $HOME/.zsh.ext && source $HOME/.zsh.ext
+source ~/.aliases
+test -f ~/.zshrc.ext && source ~/.zshrc.ext
 
 # History
 # http://zsh.sourceforge.net/Doc/Release/Options.html#History
-export HISTFILE=$HOME/.zsh_history
+export HISTFILE=~/.zsh_history
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
 export SAVEHIST=1000000000
@@ -51,7 +63,7 @@ setopt share_history		# share history between all sessions
 
 # macos
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-export NATIVEFIER_APPS_DIR=$HOME/Applications/
+export NATIVEFIER_APPS_DIR=~/Applications/
 
 # #################################################################################################
 # Setup external binaries
@@ -61,7 +73,7 @@ export NATIVEFIER_APPS_DIR=$HOME/Applications/
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # User bins
-export PATH="$HOME/.bin:$PATH"
+export PATH="{$HOME}/.bin:$PATH"
 
 # asdf package version manager
 . $(brew --prefix asdf)/libexec/asdf.sh
@@ -75,7 +87,7 @@ export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$GOBIN
 
 # python
-export PATH=$PATH:$HOME/.local/bin
+export PATH="$PATH:$HOME/.local/bin"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
