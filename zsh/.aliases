@@ -1,3 +1,5 @@
 alias vim=nvim
 alias vi=nvim
 alias reload="source ~/.zshrc"
+alias zim-update="source ${ZIM_HOME}/zimfw.zsh update"
+alias zim-install="source ${ZIM_HOME}/zimfw.zsh install"

@@ -22,13 +22,11 @@ export ZVM_INIT_MODE=sourcing
 
 # Install if not installed
 if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  echo "Installing zim into $ZIM_HOME ..."
   curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
       https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
-fi
-
-# Automatically install plugins
-if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} ]]; then
-  source ${ZIM_HOME}/zimfw.zsh init -q
+  source ${ZIM_HOME}/zimfw.zsh install
+  echo "zim installed"
 fi
 
 # Initialize modules
@@ -81,15 +79,15 @@ PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export PATH="${HOME}/.bin:$PATH"
 
 # asdf package version manager
-. $(brew --prefix asdf)/libexec/asdf.sh
+# . $(brew --prefix asdf)/libexec/asdf.sh
 
 # golang
-export GOPATH=$(go env GOPATH)
-export GOROOT=$(go env GOROOT)
-export GOBIN=$(go env GOBIN)
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
-export PATH=$PATH:$GOBIN
+# export GOPATH=$(go env GOPATH)
+# export GOROOT=$(go env GOROOT)
+# export GOBIN=$(go env GOBIN)
+# export PATH=$PATH:$GOPATH/bin
+# export PATH=$PATH:$GOROOT/bin
+# export PATH=$PATH:$GOBIN
 
 # python
 export PATH="$PATH:$HOME/.local/bin"
