@@ -8,6 +8,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # #################################################################################################
+# Brew
+# #################################################################################################
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# #################################################################################################
 # Plugin manager
 # #################################################################################################
 
@@ -69,11 +74,11 @@ export NATIVEFIER_APPS_DIR=~/Applications/
 # Setup external binaries
 # #################################################################################################
 
-# Add brew bins to PATH
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# GNU bins
+PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 
 # User bins
-export PATH="{$HOME}/.bin:$PATH"
+export PATH="${HOME}/.bin:$PATH"
 
 # asdf package version manager
 . $(brew --prefix asdf)/libexec/asdf.sh

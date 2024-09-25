@@ -29,6 +29,7 @@ return {
         "gopls",
         "gofmt",
         "goimports",
+        "terraformls",
       },
     },
   },
