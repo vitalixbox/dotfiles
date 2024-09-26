@@ -15,6 +15,8 @@ Fixes:
 ```bash
 asdf plugin add java https://github.com/halcyon/asdf-java.git
 asdf plugin add maven
+asdf plugin add golang
+asdf plugin add nodejs
 
 # nodejs
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
@@ -25,11 +27,6 @@ asdf global nodejs latest
 asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
 asdf install ruby latest
 asdf global ruby latest
-
-# golang
-asdf plugin add golang https://github.com/kennyp/asdf-golang.git
-asdf install golang 1.18.6
-asdf global golang 1.18.6
 
 # python
 asdf plugin add python https://github.com/asdf-community/asdf-python.git

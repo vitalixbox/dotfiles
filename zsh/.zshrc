@@ -85,12 +85,12 @@ export PATH="${HOME}/.bin:$PATH"
 . $(brew --prefix asdf)/libexec/asdf.sh
 
 # golang
-# export GOPATH=$(go env GOPATH)
-# export GOROOT=$(go env GOROOT)
-# export GOBIN=$(go env GOBIN)
-# export PATH=$PATH:$GOPATH/bin
-# export PATH=$PATH:$GOROOT/bin
-# export PATH=$PATH:$GOBIN
+export GOPATH=$(go env GOPATH)
+export GOROOT=$(go env GOROOT)
+export GOBIN=$(go env GOBIN)
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:$GOBIN
 
 # python
 export PATH="$PATH:$HOME/.local/bin"
