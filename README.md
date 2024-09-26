@@ -13,6 +13,9 @@ Fixes:
 ## Language envs
 
 ```bash
+asdf plugin add java https://github.com/halcyon/asdf-java.git
+asdf plugin add maven
+
 # nodejs
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 asdf install nodejs latest
@@ -32,7 +35,4 @@ asdf global golang 1.18.6
 asdf plugin add python https://github.com/asdf-community/asdf-python.git
 asdf install python 3.10.7
 asdf global python 3.10.7
-
-# java
-asdf plugin add java https://github.com/halcyon/asdf-java.git
 ```

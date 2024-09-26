@@ -72,6 +72,9 @@ export NATIVEFIER_APPS_DIR=~/Applications/
 # Setup external binaries
 # #################################################################################################
 
+# User bins
+export PATH="/usr/local/bin:$PATH"
+
 # GNU bins
 PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 
@@ -79,7 +82,7 @@ PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export PATH="${HOME}/.bin:$PATH"
 
 # asdf package version manager
-# . $(brew --prefix asdf)/libexec/asdf.sh
+. $(brew --prefix asdf)/libexec/asdf.sh
 
 # golang
 # export GOPATH=$(go env GOPATH)
