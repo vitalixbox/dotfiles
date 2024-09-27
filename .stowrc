@@ -3,4 +3,5 @@
 --ignore=setup.sh
 --ignore=DS_Store
 --adopt
+--no-folding
 --verbose
