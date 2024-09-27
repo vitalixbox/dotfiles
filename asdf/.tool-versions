@@ -2,3 +2,5 @@ java temurin-21.0.4+7.0.LTS
 maven 3.8.8
 golang 1.22.7
 nodejs 20.17.0
+ruby 3.3.5
+python 3.12.6

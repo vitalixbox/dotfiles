@@ -12,6 +12,7 @@ M.ui = {
   -- 	Comment = { italic = true },
   -- 	["@comment"] = { italic = true },
   -- },
+  mason = { cmd = true, pkgs = {} },
 }
 
 return M
