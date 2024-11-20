@@ -1,9 +1,12 @@
+[general]
+import = [ "~/.config/alacritty/themes/themes/github_light.toml" ]
+
 [window]
 startup_mode = "Maximized"
 decorations = "none" # Removes the window decoration (title bar, etc.)
 option_as_alt = "Both"
 
-[shell]
+[terminal.shell]
 program = "/opt/homebrew/bin/zellij"
 args = ["-l", "welcome"]
 
@@ -15,39 +18,9 @@ normal = { family = "Hack Nerd Font Mono", style = "Regular" }
 bold = { family = "Hack Nerd Font Mono", style = "Bold" }
 italic = { family = "Hack Nerd Font Mono", style = "Italic" }
 
+
+[terminal]
+
 # normal = { family = "JetBrainsMonoNL Nerd Font Mono", style = "Regular" }
 # bold = { family = "JetBrainsMonoNL Nerd Font Mono", style = "Bold" }
 # italic = { family = "JetBrainsMonoNL Nerd Font Mono", style = "Italic" }
-
-# Colors (PaperColor - Light)
-
-# Default colors
-[colors.primary]
-background = '#eeeeee'
-foreground = '#444444'
-
-[colors.cursor]
-text = '#eeeeee'
-cursor = '#444444'
-
-# Normal colors
-[colors.normal]
-black   = '#eeeeee'
-red     = '#af0000'
-green   = '#008700'
-yellow  = '#5f8700'
-blue    = '#0087af'
-magenta = '#878787'
-cyan    = '#005f87'
-white   = '#444444'
-
-# Bright colors
-[colors.bright]
-black   = '#bcbcbc'
-red     = '#d70000'
-green   = '#d70087'
-yellow  = '#8700af'
-blue    = '#d75f00'
-magenta = '#d75f00'
-cyan    = '#005faf'
-white   = '#005f87' 

@@ -12,3 +12,12 @@ autocmd("FileType", {
     vim.opt.softtabstop = 4
   end,
 })
+
+autocmd("FileType", {
+  pattern = "proto",
+  callback = function()
+    vim.opt.shiftwidth = 4
+    vim.opt.tabstop = 4
+    vim.opt.softtabstop = 4
+  end,
+})
